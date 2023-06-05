@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   		// profileId: { type: Sequelize.INTEGER },
       profileId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         onDelete: 'CASCADE',
         references: {

@@ -22,7 +22,7 @@ app.use(formData.parse())
 // mount imported routes
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
-app.use('api/dogs' , dogsRouter)
+app.use('/api/dogs' , dogsRouter)
 
 // handle 404 errors
 app.use(function (req, res, next) {

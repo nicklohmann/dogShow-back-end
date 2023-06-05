@@ -9,4 +9,15 @@ async function index(req, res) {
     res.status(500).json(err)
   }
 }
-module.exports = { index , }
+
+async function create(req, res) {
+  try {
+    req.body.profileId = req.user.profile.index
+    const dog = await Dog.create(req.body)
+    res.status(200).json(dog)
+  } catch {
+    console.log(err)
+    res.status(500).json({ err })
+  }
+}
+module.exports = { index , create}
