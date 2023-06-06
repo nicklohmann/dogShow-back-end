@@ -33,6 +33,15 @@ async function update(req, res) {
   }
 }
 
+async function deleteDog(req, res) {
+  try {
+    const numberOfRowsRemoved = await Dog.destroy(
+      { where: { id: req.params.dogId } }
+    )
+    res.status(200).json(numberOfRowsRemoved)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}
 
-
-module.exports = { index , create, update }
+module.exports = { index , create, update, delete: deleteDog }

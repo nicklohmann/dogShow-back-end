@@ -12,6 +12,6 @@ router.use(decodeUserFromToken)
 router.post('/' , checkAuth , dogsCtrl.create)
 router.get('/' , checkAuth , dogsCtrl.index)
 router.put('/:dogId' , dogsCtrl.update)
-
+router.delete('/:dogId' , dogsCtrl.delete)
 
 module.exports = router
