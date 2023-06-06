@@ -8,7 +8,7 @@ async function castVote(req, res) {
   const prevVote = await Vote.findOne({
     where: {
       voterId: req.body.voterId,
-      movieId: req.body.movieId,
+      dogId: req.body.dogId,
       }
     })
     if (prevVote) {
@@ -20,7 +20,7 @@ async function castVote(req, res) {
 
     const dog = Dog.findByPk(
       req.body.dogId,
-      { include: [{ model: Vote, as "votesCounted"}]}
+      { include: [{ model: Vote, as: "votesCounted"}]}
     )
     res.status(200).json(dog)
   } catch (error) {

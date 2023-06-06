@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Dog.belongsTo(models.Profile, { foreignKey: 'profileId' })
+
+      /* Dog.hasMany(models.Vote, {
+        as: 'votesCounted',
+        foreignKey: 'dogId',
+      }) */
     }
   }
   Dog.init({
@@ -19,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     photo: DataTypes.STRING,
 
-    intelligence: {
+    /* intelligence: {
       type: DataTypes.INTEGER,
       validate:{
         min: 0,
@@ -46,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
         min: 0,
         max: 5,
       },
-    },
+    }, */
   		// profileId: { type: Sequelize.INTEGER },
       profileId: {
         type: DataTypes.INTEGER,
