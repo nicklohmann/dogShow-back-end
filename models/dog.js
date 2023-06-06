@@ -19,6 +19,34 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     photo: DataTypes.STRING,
 
+    intelligence: {
+      type: DataTypes.INTEGER,
+      validate:{
+        min: 0,
+        max: 5,
+      },
+    },
+    loyalty: {
+      type: DataTypes.INTEGER,
+      validate:{
+        min: 0,
+        max: 5,
+      },
+    },
+    energy: {
+      type: DataTypes.INTEGER,
+      validate:{
+        min: 0,
+        max: 5,
+      },
+    },
+    affectionate: {
+      type: DataTypes.INTEGER,
+      validate:{
+        min: 0,
+        max: 5,
+      },
+    },
   		// profileId: { type: Sequelize.INTEGER },
       profileId: {
         type: DataTypes.INTEGER,
