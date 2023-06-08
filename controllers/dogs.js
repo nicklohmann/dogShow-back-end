@@ -1,4 +1,5 @@
 const { Dog } = require('../models')
+const cloudinary = require('cloudinary').v2
 
 async function create(req, res) {
   try {
@@ -52,7 +53,7 @@ async function addDogPhoto(req, res) {
       { tags: `${req.user.email}` }
     )
     dog.photo = image.url
-
+    console.log(dog.photo);
     await dog.save()
     res.status(201).json(dog.photo)
   } catch (err) {
