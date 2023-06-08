@@ -39,6 +39,7 @@ async function deleteDog(req, res) {
     await dog.destroy()
     res.status(200).json(dog)
   } catch (err) {
+    console.log(err);
     res.status(500).json(err)
   }
 }
@@ -46,12 +47,13 @@ async function deleteDog(req, res) {
 async function addDogPhoto(req, res) {
   try {
     const imageFile = req.files.photo.path
-    const dog = await Dog.findByPk(req.params.id)
+    const dog = await Dog.findByPk(req.params.dogId)
 
     const image = await cloudinary.uploader.upload(
       imageFile, 
       { tags: `${req.user.email}` }
     )
+    //console.log("IMAGE:" ,image);
     dog.photo = image.url
     console.log(dog.photo);
     await dog.save()

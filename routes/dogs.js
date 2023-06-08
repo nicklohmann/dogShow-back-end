@@ -13,5 +13,6 @@ router.post('/' , checkAuth , dogsCtrl.create)
 router.get('/' , checkAuth , dogsCtrl.index)
 router.put('/:dogId' , dogsCtrl.update)
 router.delete('/:dogId' , dogsCtrl.delete)
+router.put('/:dogId/add-photo' , dogsCtrl.addDogPhoto)
 
 module.exports = router
